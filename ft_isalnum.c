@@ -6,15 +6,15 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:03:41 by jlira             #+#    #+#             */
-/*   Updated: 2023/08/30 14:07:48 by johnylira        ###   ########.fr       */
+/*   Updated: 2023/08/30 14:25:54 by johnylira        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_alnum(int c)
+int	ft_isalnum(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||  (c >= '0' && c <= '9'))
+	if (ft_isdigit(c) || ft_isalpha(c))
 		return (1);
 	else
 		return (0);
