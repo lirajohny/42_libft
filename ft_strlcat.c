@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:32:24 by jlira             #+#    #+#             */
-/*   Updated: 2023/08/30 18:01:10 by johnylira        ###   ########.fr       */
+/*   Updated: 2023/08/31 19:03:16 by johnylira        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strdup(const char *s1)
+#include <stdio.h>
+#include <string.h>
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char	*new_string;
-	int		i;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	i = 0;
-	new_string = (char *)malloc(ft_strlen(s1) + 1);
-	if (new_string == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
+	k = 0;
+	while (src[k] != '\0' && (i + k + 1 < dstsize))
 	{
-		new_string[i] = s1[i];
-		i++;
+		dst[i + k] = src[k];
+		k++;
 	}
-	new_string[i] = '\0';
-	return (new_string);
+	if (i + k < dstsize)
+		dst[i + k] = '\0';
+	return (i + j);
 }

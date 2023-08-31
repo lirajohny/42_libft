@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:32:24 by jlira             #+#    #+#             */
-/*   Updated: 2023/08/30 18:01:10 by johnylira        ###   ########.fr       */
+/*   Updated: 2023/08/31 11:49:34 by johnylira        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+static void	ft_print_nbr(int nb, int fd)
 {
-	char	*new_string;
-	int		i;
+	int	last_digit;
 
-	i = 0;
-	new_string = (char *)malloc(ft_strlen(s1) + 1);
-	if (new_string == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
+	if (nb == 0)
+		return ;
+	last_digit = nb % 10;
+	ft_print_nbr(nb / 10, fd);
+	last_digit = last_digit + '0';
+	ft_putchar_fd(last_digit, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
 	{
-		new_string[i] = s1[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		if (n == -2147483648)
+		{
+			ft_putstr_fd("2147483648", fd);
+			return ;
+		}
+		ft_print_nbr(n * (-1), fd);
 	}
-	new_string[i] = '\0';
-	return (new_string);
+	else if (n == 0)
+		write(1, "0", 1);
+	else
+		ft_print_nbr(n, fd);
 }
