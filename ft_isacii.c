@@ -6,15 +6,15 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:03:41 by jlira             #+#    #+#             */
-/*   Updated: 2023/08/30 14:26:10 by johnylira        ###   ########.fr       */
+/*   Updated: 2023/08/30 14:28:10 by johnylira        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 0 && c <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	else
 		return (0);
