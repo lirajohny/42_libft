@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:00:51 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/11 19:32:11 by jlirasv          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:43:23 by jlirasv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	unsigned char	*temp_src;
 
 	i = n;
-	if (dst == NULL && src == NULL)
-		return (dst);
 	temp_dst = (unsigned char *)dst;
 	temp_src = (unsigned char *)src;
 	if (temp_dst == temp_src)
