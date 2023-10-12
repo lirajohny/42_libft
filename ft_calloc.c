@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlira <jlira@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 11:34:35 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/12 11:34:58 by jlira            ###   ########.fr       */
+/*   Created: 2023/10/12 19:56:36 by jlira             #+#    #+#             */
+/*   Updated: 2023/10/12 20:54:24 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int	ft_islower(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (ft_isalpha(c))
-		return (c + 32);
-	return (c);
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero (ptr, nmemb * size);
+	return (ptr);
 }

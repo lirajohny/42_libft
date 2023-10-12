@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:56:59 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/12 19:27:10 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/12 19:52:13 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int	ft_atoi(const char *nptr);
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 int	ft_isalnum(int c);
