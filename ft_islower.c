@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jlira <jlira@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:32:24 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/11 21:19:12 by jlirasv          ###   ########.fr       */
+/*   Created: 2023/10/12 11:34:35 by jlira             #+#    #+#             */
+/*   Updated: 2023/10/12 11:34:58 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_islower(int c)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	if (ft_isalpha(c))
+		return (c + 32);
+	return (c);
 }
