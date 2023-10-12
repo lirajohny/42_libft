@@ -6,7 +6,7 @@
 /*   By: jlira <jlira@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:36:16 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/12 11:51:53 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/12 19:34:39 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char *ft_strchr(const char *s, int c)
 			str = (char *)s;
 		s++;
 	}
-	return (str);
+	return ((char *)str);
 }
