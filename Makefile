@@ -6,7 +6,7 @@
 #    By: jlira <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 15:54:16 by jlira             #+#    #+#              #
-#    Updated: 2023/08/30 15:52:43 by johnylira        ###   ########.fr        #
+#    Updated: 2023/10/15 11:15:45 by jlira            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS := $(wildcard *.c)
 OBJS    = ${SRCS:.c=.o}
 INCS    = includes
 CFLAGS  = -Wall -Wextra -Werror
-
+NAME = libft.a
 # Regra para transformar arquivos .c em .o
 .c.o:
 	cc ${CFLAGS} -c $< -o $@ -I ${INCS}
@@ -25,7 +25,7 @@ libft.a: ${OBJS}
 	ranlib libft.a
 
 # Regra padrão - o que será executado quando você apenas digitar 'make'
-all: libft.a
+all: ${NAME}
 
 # Regra para limpar/remover arquivos objeto
 clean:
