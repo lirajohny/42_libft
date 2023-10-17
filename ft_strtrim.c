@@ -6,18 +6,18 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:38:33 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/17 16:55:42 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/17 20:18:05 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int	end;
-	int	len;
-	int	i;
+	int		start;
+	int		end;
+	int		len;
+	int		i;
 	char	*new_string;
 
 	len = ft_strlen(s1);
@@ -28,7 +28,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	{
 		start++;
 		i++;
-	}	
+	}
 	while (ft_strchr(set, s1[end]) && end > start)
 	{
 		end--;
