@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlira <jlira@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 11:36:16 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/17 13:13:53 by jlira            ###   ########.fr       */
+/*   Created: 2023/10/17 10:28:47 by jlira             #+#    #+#             */
+/*   Updated: 2023/10/17 16:30:29 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	while (*s)
+	size_t	i;
+	char *str;
+
+	str = malloc(sizeof(char) * (len + 1));
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (i < len && s[start + i] != '\0')
 	{
-		if (*s == c)
-		{
-			return ((char *)s);
-		}
-		s++;
+		str[i] = s[start + i];
+		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }

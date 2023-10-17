@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:52:45 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/16 15:22:22 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/17 17:03:06 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int main(void);
 int	ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -38,4 +39,7 @@ void	ft_putstr_fd(char *s, int fd);
 char	*ft_strdup(const char *s1);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putnbr_fd(int n, int fd);
+char *ft_strtrim(char const *s1, char const *set);
+char *ft_substr(char const *s, unsigned int start, size_t len);
+char **ft_split(char const *s, char c);
 #endif

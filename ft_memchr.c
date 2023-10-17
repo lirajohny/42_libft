@@ -6,7 +6,7 @@
 /*   By: jlira <jlira@student.42.rj>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 09:04:50 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/15 11:22:01 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/17 15:24:52 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 	char			*str;
 	char			*s1;
 

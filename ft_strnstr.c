@@ -6,14 +6,13 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:39:57 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/16 15:42:48 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/17 16:49:12 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <biging.h>
+#include "libft.h"
 
-char ft_strnstr(const char *big, char *little, size_t len)
+char *ft_strnstr(const char *big, const char *little, size_t len)
 {
     size_t count;
     int i;
@@ -27,8 +26,7 @@ char ft_strnstr(const char *big, char *little, size_t len)
         while (big[i + j] == little[j] && count <= len)
         {
             if (little[j + 1] == '\0')
-                return big + i;
-
+                return ((char *)(big + i));
             j++;
             count++;
         }
