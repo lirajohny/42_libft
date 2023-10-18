@@ -6,7 +6,7 @@
 /*   By: jlira <jlira@student.42.rj>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 20:32:15 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/17 20:33:10 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/18 10:51:17 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return ((void *)0);
-	ret = (char*)ft_strdup(s);
+	ret = (char *)ft_strdup(s);
 	if (!ret)
 		return ((void *)0);
 	i = 0;
