@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:51:37 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/18 12:09:05 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/18 15:03:47 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strrchr(const char *s, int c);
 #endif
