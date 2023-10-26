@@ -6,72 +6,75 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:55:09 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/23 12:54:04 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/26 13:32:11 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "libft.h"
 
-static int	count_words(char const *s, char c)
+static int	count_words(char const *str, char c)
 {
 	int	i;
+	int	trigger;
 
 	i = 0;
-	while (*s != '\0')
+	trigger = 0;
+	while (*str)
 	{
-		if (*s == c)
+		if (*str != c && trigger == 0)
 		{
+			trigger = 1;
 			i++;
 		}
-		s++;
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	return (i + 1);
+	return (i);
 }
 
-static int	words_copy(char **V, char const *str, char sep, int count)
+static int	words_copy(char **V, char const *str, char sep, int pos)
 {
 	int	len;
 	int	j;
 
 	len = 0;
 	j = 0;
-	while (str[count + len] != sep && str[count + len] != '\0')
+	while (str[pos] == sep)
+		pos++;
+	while (str[pos + len] != sep && str[pos + len] != '\0')
 	{
 		len++;
 	}
 	*V = malloc(sizeof(char) * (len + 1));
 	if (!V)
 		return (-1);
-	while (str[count] == sep)
-		count++;
-	while (str[count] != sep && str[count] != '\0')
+	while (str[pos] != sep && str[pos] != '\0')
 	{
-		(*V)[j] = str[count];
-		count++;
+		(*V)[j] = str[pos];
+		pos++;
 		j++;
 	}
 	(*V)[j] = '\0';
-	return (count);
+	return (pos);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	char	*str;
 	int		len;
 	int		i;
 	int		pos;
 
-	str = ft_strtrim(s, &c);
-	len = count_words(str, c);
-	split = (char **)malloc((sizeof(char *) * len) + sizeof(NULL));
+	len = count_words(s, c);
+	split = (char **)malloc((sizeof(char *) * (len + 1)));
 	if (!split)
 		return (NULL);
 	i = 0;
-	pos = -1;
-	while (str[++pos] != '\0')
+	pos = 0;
+	while (len != 0 && s[pos] != '\0' && i < len)
 	{
-		pos = words_copy(&split[i], str, c, pos);
+		pos = words_copy(&split[i], s, c, pos);
 		i++;
 	}
 	split[i] = NULL;
