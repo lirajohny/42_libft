@@ -6,7 +6,7 @@
 #    By: jlira <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 15:54:16 by jlira             #+#    #+#              #
-#    Updated: 2023/10/26 13:40:38 by jlira            ###   ########.fr        #
+#    Updated: 2023/10/26 15:43:00 by jlira            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,10 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
+
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 fclean: clean
 	$(RM) $(NAME)
 

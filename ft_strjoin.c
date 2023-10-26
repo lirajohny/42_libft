@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:32:34 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/17 20:09:44 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/26 15:57:04 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2);
-	joined = malloc(sizeof(char) * len);
+	joined = malloc(sizeof(char) * len + 1);
 	if (!joined)
 		return (NULL);
 	while (i < len)
@@ -36,5 +36,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		}
 		i++;
 	}
+	joined[i] = '\0';
 	return (joined);
 }
