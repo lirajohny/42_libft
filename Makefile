@@ -6,7 +6,7 @@
 #    By: jlira <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 15:54:16 by jlira             #+#    #+#              #
-#    Updated: 2023/10/26 15:43:00 by jlira            ###   ########.fr        #
+#    Updated: 2023/10/26 16:27:11 by jlira            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ BONUS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstiter_bonus.c ft_lstlast_bonus.c \
 	ft_lstmap_bonus.c ft_lstnew_bonus.c \
 	ft_lstsize_bonus.c
-CC = gcc
+CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 NAME = libft.a
@@ -39,8 +39,8 @@ clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 fclean: clean
 	$(RM) $(NAME)
 
