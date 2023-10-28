@@ -6,8 +6,19 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:18:16 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/26 12:18:17 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/27 22:42:03 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}

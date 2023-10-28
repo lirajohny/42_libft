@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:17:17 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/26 16:30:20 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/27 22:41:02 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*ptr;	
+    t_list    *ptr;    
 
-	ptr = lst[0];
-	while (ptr->next != NULL)
-	{
-		ptr->next = ptr->next;
-	}
-	ptr->next = new;
+    if (!*lst)
+    {
+        *lst = new;
+        return ;
+    }
+    ptr = *lst;
+    while (ptr->next != NULL)
+    {
+        ptr = ptr->next;
+    }
+    ptr->next = new;
 }
