@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:32:34 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/30 01:59:30 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/30 11:14:30 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			joined[i] = s1[i];
 		else
 		{
-			joined[i] = s2[j];
-			j++;
+			joined[i] = s2[j++];
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:55:09 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/30 01:54:42 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/30 11:08:20 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ static int	words_copy(char **V, char const *str, char sep, int pos)
 	while (str[pos] == sep)
 		pos++;
 	while (str[pos + len] != sep && str[pos + len] != '\0')
-	{
 		len++;
-	}
 	if (len == 0)
 		*V = NULL;
 	else
@@ -64,6 +62,15 @@ static int	words_copy(char **V, char const *str, char sep, int pos)
 	}
 	(*V)[j] = '\0';
 	return (pos);
+}
+
+static void	to_free(char **split, int i)
+{
+	while (i != 0)
+	{
+		free(split[i]);
+		i--;
+	}
 }
 
 char	**ft_split(char const *s, char c)
@@ -85,12 +92,8 @@ char	**ft_split(char const *s, char c)
 	{
 		pos = words_copy(&split[i], s, c, pos);
 		if (pos < 0)
-		{
-			while (i != 0)
-			{
-				free(split[i]);
-				i--;
-			}
+		{		
+			to_free(split, i);
 			return (NULL);
 		}
 		i++;
