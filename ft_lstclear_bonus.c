@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:17:50 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/27 22:42:55 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/30 01:04:06 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*aux;
+	t_list	*tmp;
 
 	if (!lst)
 		return ;
 	while ((*lst) != NULL)
 	{
-		aux = (*lst)->next;
+		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = aux;
+		*lst = tmp;
 	}
 }

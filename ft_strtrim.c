@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:38:33 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/17 20:18:05 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/30 01:22:05 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	char	*new_string;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	len = ft_strlen(s1);
 	start = 0;
 	end = len - 1;

@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:55:09 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/26 13:32:11 by jlira            ###   ########.fr       */
+/*   Updated: 2023/10/30 01:54:42 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	count_words(char const *str, char c)
 	int	i;
 	int	trigger;
 
+	if (!str)
+		return (0);
 	i = 0;
 	trigger = 0;
 	while (*str)
@@ -46,9 +48,14 @@ static int	words_copy(char **V, char const *str, char sep, int pos)
 	{
 		len++;
 	}
-	*V = malloc(sizeof(char) * (len + 1));
-	if (!V)
-		return (-1);
+	if (len == 0)
+		*V = NULL;
+	else
+	{
+		*V = malloc(sizeof(char) * (len + 1));
+		if (!V)
+			return (-1);
+	}
 	while (str[pos] != sep && str[pos] != '\0')
 	{
 		(*V)[j] = str[pos];
@@ -66,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		pos;
 
+	if (!s)
+		return (NULL);
 	len = count_words(s, c);
 	split = (char **)malloc((sizeof(char *) * (len + 1)));
 	if (!split)
@@ -75,6 +84,15 @@ char	**ft_split(char const *s, char c)
 	while (len != 0 && s[pos] != '\0' && i < len)
 	{
 		pos = words_copy(&split[i], s, c, pos);
+		if (pos < 0)
+		{
+			while (i != 0)
+			{
+				free(split[i]);
+				i--;
+			}
+			return (NULL);
+		}
 		i++;
 	}
 	split[i] = NULL;
