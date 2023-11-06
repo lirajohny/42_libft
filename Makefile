@@ -6,7 +6,7 @@
 #    By: jlira <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 15:54:16 by jlira             #+#    #+#              #
-#    Updated: 2023/10/30 01:51:52 by jlira            ###   ########.fr        #
+#    Updated: 2023/10/30 12:27:43 by jlira            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,15 @@ SRCS	= ft_isascii.c ft_isprint.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 	  ft_striteri.c
 
 OBJS = $(SRCS:.c=.o)
+
 BONUS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c ft_lstdelone_bonus.c \
 	ft_lstiter_bonus.c ft_lstlast_bonus.c \
 	ft_lstmap_bonus.c ft_lstnew_bonus.c \
 	ft_lstsize_bonus.c
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
@@ -42,5 +46,8 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean $(NAME)
+
 bonus:	$(OBJS) $(BONUS_OBJS)
 		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY: all clean fclean re bonus
